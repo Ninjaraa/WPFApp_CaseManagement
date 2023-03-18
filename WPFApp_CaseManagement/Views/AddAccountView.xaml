@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="WPFApp_CaseManagement.Views.AddAccountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFApp_CaseManagement.Views"
+             xmlns:viewmodels="clr-namespace:WPFApp_CaseManagement.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:AddAccountViewModel}" 
+             d:DesignHeight="500" d:DesignWidth="800" mc:Ignorable="d">
+
+    <Grid Style="{StaticResource gridBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Style="{StaticResource textHeader}" Text="Customer view - Create new account" />
+
+        <!-- Datafields to add a new account -->
+        <StackPanel Grid.Row="1" Margin="10 0 0 0">
+            <TextBlock Text="First name:" Style="{StaticResource textFieldHeader}" />
+            <TextBox Name="tb_FirstName" Style="{StaticResource textBox}" Text="{Binding FirstName}" />
+            <TextBlock Text="Last name:" Style="{StaticResource textFieldHeader}" />
+            <TextBox Name="tb_LastName" Style="{StaticResource textBox}" Text="{Binding LastName}" />
+            <TextBlock Text="Phone number:" Style="{StaticResource textFieldHeader}" />
+            <TextBox Name="tb_PhoneNumber" Style="{StaticResource textBox}" Text="{Binding PhoneNumber}" />
+            <TextBlock Text="Email:" Style="{StaticResource textFieldHeader}" />
+            <TextBox Name="tb_Email" Style="{StaticResource textBox}" Text="{Binding Email}" />
+        </StackPanel>
+        
+        <Button Name="btn_Add" Grid.Row="1" Command="{Binding AddAccountCommand}" Content="Add account" Style="{StaticResource actionBtn}" />
+    </Grid>
+</UserControl>
